@@ -70,7 +70,7 @@ loader.load(
 
         // ROTAÇÃO INICIAL
         iphone.rotation.y = 2.6;
-        iphone.rotation.x = -0.3;
+        iphone.rotation.x = -0.3; 
 
         cena.add(iphone);
 
@@ -91,9 +91,9 @@ function animacaoScroll() {
         x: -4,
 
         scrollTrigger: {
-            trigger: document.body,
+            trigger: ".hero",
             start: "top top",
-            end: "bottom bottom",
+            end: "bottom center",
             scrub: 2
         }
     });
@@ -102,7 +102,7 @@ function animacaoScroll() {
         y: iphone.rotation.y + Math.PI * 2,
 
         scrollTrigger: {
-            trigger: document.body,
+            trigger: ".hero",
             start: "top top",
             end: "bottom bottom",
             scrub: 2
@@ -141,4 +141,37 @@ gsap.from(".content", {
     opacity: 0,
     duration: 1,
     ease: "power3.out"
+});
+
+
+// 
+
+gsap.registerPlugin(ScrollTrigger);
+
+function iniciarGsap() {
+
+    const slider = document.querySelector(".slider");
+    const sections = gsap.utils.toArray(".secao");
+
+    gsap.to(slider, {
+        x: () => -(slider.scrollWidth - window.innerWidth),
+        ease: "none",
+
+        scrollTrigger: {
+            trigger: ".container-slider",
+            start: "top top",
+            pin: true,
+            scrub: 1,
+            snap: 1 / (sections.length - 1),
+
+            // 👇 ESSA LINHA É O QUE ARRUMA O BUG
+            end: () => "+=" + slider.scrollWidth
+        }
+    });
+}
+
+window.addEventListener("DOMContentLoaded", iniciarGsap);
+
+window.addEventListener("resize", () => {
+    ScrollTrigger.refresh();
 });
