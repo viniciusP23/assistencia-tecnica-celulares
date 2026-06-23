@@ -1,141 +1,120 @@
-const header = document.getElementById("header")
+
+// HEADER SCROLL
+
+const header = document.getElementById("header");
 
 window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
 
-   if(window.scrollY > 50) {
-        header.classList.add("scrolled")
-   }else {
-        header.classList.remove("scrolled")
-   }
 
-})
+// GSAP + SCROLLTRIGGER
 
-////////
+gsap.registerPlugin(ScrollTrigger);
+
+
+// HERO 3D (THREE.JS) ISOLADO
 
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
-gsap.registerPlugin(ScrollTrigger);
-
-// CENA
-const cena = new THREE.Scene();
-
-// CAMERA
-const camera = new THREE.PerspectiveCamera(
-    40,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-);
-
-camera.position.z = 10;
-
-// RENDERIZADOR
-const renderizador = new THREE.WebGLRenderer({
-    alpha: true,
-    antialias: true
-});
-
-renderizador.setSize(window.innerWidth, window.innerHeight);
-
-document
-    .querySelector(".celular")
-    .appendChild(renderizador.domElement);
-
-// ILUMINAÇÃO
-const luzAmbiente = new THREE.AmbientLight(0xffffff, 2);
-cena.add(luzAmbiente);
-
-const luzDirecional = new THREE.DirectionalLight(0xffffff, 3);
-luzDirecional.position.set(5, 5, 5);
-cena.add(luzDirecional);
-
-// MODELO IPHONE
 let iphone;
 
-const loader = new GLTFLoader();
+function initIphone3D() {
 
-loader.load(
-    "img/iphone_17_pro_max_silver.glb",
+    // CENA
+    const scene = new THREE.Scene();
 
-    (gltf) => {
+    // CAMERA
+    const camera = new THREE.PerspectiveCamera(
+        40,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+    );
+
+    camera.position.z = 10;
+
+    // RENDER
+    const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true
+    });
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    document.querySelector(".celular").appendChild(renderer.domElement);
+
+    // LUZES
+    scene.add(new THREE.AmbientLight(0xffffff, 2));
+
+    const light = new THREE.DirectionalLight(0xffffff, 3);
+    light.position.set(5, 5, 5);
+    scene.add(light);
+
+    // MODEL
+    const loader = new GLTFLoader();
+
+    loader.load("img/iphone_17_pro_max_silver.glb", (gltf) => {
 
         iphone = gltf.scene;
 
-        // AJUSTE DE TAMANHO
         iphone.scale.set(40, 40, 40);
-
-        // POSIÇÃO INICIAL
         iphone.position.set(5, -3, -5);
+        iphone.rotation.set(-0.3, 2.6, 0);
 
-        // ROTAÇÃO INICIAL
-        iphone.rotation.y = 2.6;
-        iphone.rotation.x = -0.3; 
-
-        cena.add(iphone);
+        scene.add(iphone);
 
         animacaoScroll();
-    },
+    });
 
-    undefined,
+    // ANIMAÇÃO GSAP ISOLADA
+    function animacaoScroll() {
 
-    (erro) => {
-        console.error("Erro ao carregar o modelo:", erro);
+        const hero = document.querySelector(".hero");
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: hero,
+                start: "top top",
+                end: "bottom center",
+                scrub: 2
+            }
+        });
+
+        tl.to(iphone.position, {
+            x: -4
+        }, 0);
+
+        tl.to(iphone.rotation, {
+            y: iphone.rotation.y + Math.PI * 2
+        }, 0);
     }
-);
 
-// ANIMAÇÃO COM SCROLL
-function animacaoScroll() {
+    // LOOP THREE
+    function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+    }
 
-    gsap.to(iphone.position, {
-        x: -4,
+    animate();
 
-        scrollTrigger: {
-            trigger: ".hero",
-            start: "top top",
-            end: "bottom center",
-            scrub: 2
-        }
-    });
-
-    gsap.to(iphone.rotation, {
-        y: iphone.rotation.y + Math.PI * 2,
-
-        scrollTrigger: {
-            trigger: ".hero",
-            start: "top top",
-            end: "bottom bottom",
-            scrub: 2
-        }
+    // RESIZE
+    window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
     });
 }
 
-// RESPONSIVIDADE
-window.addEventListener("resize", () => {
+initIphone3D();
 
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+// HERO TEXTO ANIMATION
 
-    renderizador.setSize(
-        window.innerWidth,
-        window.innerHeight
-    );
-
-});
-
-// LOOP DE RENDERIZAÇÃO
-function animar() {
-
-    requestAnimationFrame(animar);
-
-    renderizador.render(cena, camera);
-}
-
-animar();
-
-// 
-
-// Texto vindo da esquerda
 gsap.from(".content", {
     x: -100,
     opacity: 0,
@@ -144,11 +123,9 @@ gsap.from(".content", {
 });
 
 
-// 
+// SLIDER HORIZONTAL (ISOLADO)
 
-gsap.registerPlugin(ScrollTrigger);
-
-function iniciarGsap() {
+function initSlider() {
 
     const slider = document.querySelector(".slider");
     const sections = gsap.utils.toArray(".secao");
@@ -156,22 +133,22 @@ function iniciarGsap() {
     gsap.to(slider, {
         x: () => -(slider.scrollWidth - window.innerWidth),
         ease: "none",
-
         scrollTrigger: {
             trigger: ".container-slider",
             start: "top top",
             pin: true,
             scrub: 1,
             snap: 1 / (sections.length - 1),
-
-            // 👇 ESSA LINHA É O QUE ARRUMA O BUG
             end: () => "+=" + slider.scrollWidth
         }
     });
+
+    window.addEventListener("resize", () => {
+        ScrollTrigger.refresh();
+    });
 }
 
-window.addEventListener("DOMContentLoaded", iniciarGsap);
+window.addEventListener("DOMContentLoaded", initSlider);
 
-window.addEventListener("resize", () => {
-    ScrollTrigger.refresh();
-});
+
+
