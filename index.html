@@ -10,7 +10,7 @@
 
 <body>
 
-    <header id="header">
+    <!-- <header id="header">
         <nav class="navbar">
             <img class="logo" src="img/logo.png" alt="logo">
 
@@ -20,7 +20,7 @@
                 <li><a href="#">Contatos</a></li>
             </ul>
         </nav>
-    </header>
+    </header> -->
 
     <main class="hero">
 
@@ -225,17 +225,69 @@
 
                     </div>
             </section>
-
+            <!-- 
             <section class="secao">
                 <h1>Seção 3</h1>
 
             </section>
 
             <section class="secao">
-            </section>
+            </section> -->
 
         </div>
     </section>
+
+    <footer>
+
+        <section class="container-contact">
+            <div class="text-contact">
+                <h1>Contatos</h1>
+            </div>
+
+            <div class="form-contact">
+
+                <h2>tire suas dúvidas</h2>
+
+                <div class="contact-content">
+
+                    <!-- FORM -->
+                    <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+                        <input placeholder="Nome" class="campo-form" id="nome">
+
+                        <textarea class="campo-form" placeholder="Digite sua mensagem" id="mensagem"></textarea>
+
+                        <button type="submit" class="botao-form">Enviar WhatsApp</button>
+                    </form>
+
+                    <!-- MAPA / IFRAME -->
+                    <div class="mapa">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.580821286629!2d-49.71107632392947!3d-23.039158342616776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c038b457d12ee9%3A0xe72e8a3d90c50929!2sR.%20Alt%C3%ADno%20Arantes%2C%20323%20-%20Chavantes%2C%20SP%2C%2018970-000!5e0!3m2!1spt-BR!2sbr!4v1782433506330!5m2!1spt-BR!2sbr"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+
+                </div>
+
+                <div class="social-links">
+                        <a href="https://www.instagram.com/pauliniassistenciaa/" target="_blank">
+                            <img src="img/instagram.png" alt="instagram-logo">
+                        </a>
+
+                        <a href="tel:+5514998818219" target="_blank">
+                            <img src="img/telefone.png" alt="telefone-logo">
+                        </a>
+
+                        <a href="https://facebook.com/seuperfil" target="_blank">
+                            <img src="img/email.png" alt="email-logo">
+                        </a>
+                    </div>
+
+            </div>
+
+        </section>
+
+    </footer>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
