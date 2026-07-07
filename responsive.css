@@ -1,0 +1,309 @@
+@media (max-width: 1024px) {
+
+    .hero-celular {
+        display: none;
+    }
+
+    .navbar {
+        justify-content: space-between;
+        padding: 0 30px;
+    }
+
+    .box1 {
+        width: 100%;
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 100px 30px 50px;
+        position: relative;
+    }
+
+    .content {
+        margin-left: 0 !important;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+        max-width: 650px;
+    }
+
+    .content h1 {
+        font-size: 42px;
+    }
+
+    .content p {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .texto-fundo {
+        display: none;
+    }
+
+    .descriptions {
+        width: 100%;
+        padding: 40px;
+        gap: 20px;
+    }
+
+    .cards {
+        width: 100%;
+    }
+
+    .cards p {
+        width: 400px;
+    }
+
+    .showcase-description h1 {
+        font-size: 40px;
+    }
+
+    .produto-img img {
+        position: absolute;
+        width: 500px;
+        left: -250px;
+    }
+
+    .showcase-image img {
+        width: 600px;
+    }
+
+    .product-image {
+        width: 400px;
+    }
+}
+
+
+/* ===========================
+        CELULARES
+=========================== */
+
+@media (max-width:768px) {
+
+    ul {
+        display: none;
+    }
+
+    .navbar {
+        justify-content: center;
+    }
+
+    .logo {
+        width: 60px;
+    }
+
+    section {
+        height: auto;
+    }
+
+    .box1 {
+
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 120px 25px 70px;
+    }
+
+    .content {
+
+        margin-left: 0 !important;
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+    }
+
+    .content h1 {
+        font-size: 34px;
+        line-height: 1.3;
+    }
+
+    .content p {
+        width: 100%;
+        font-size: 17px;
+    }
+
+    .btn-content {
+        width: 100%;
+        max-width: 220px;
+    }
+
+    .texto-fundo {
+        display: none;
+    }
+
+    /* CARDS */
+
+    .box2 {
+        padding: 60px 20px;
+    }
+
+    .descriptions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .line1,
+    .line2 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .cards {
+        width: 100%;
+        height: auto;
+        padding: 30px;
+        margin-bottom: 0;
+    }
+
+    /* SLIDER */
+
+    .container-slider,
+    .slider,
+    .secao {
+        height: auto;
+    }
+
+    .primeira {
+        flex-direction: column;
+        height: auto;
+        padding: 50px 20px;
+    }
+
+    .conteudo {
+        padding: 0;
+        text-align: center;
+        align-items: center;
+    }
+
+    .conteudo h1 {
+        font-size: 34px;
+    }
+
+    .conteudo p {
+        max-width: 100%;
+    }
+
+    .btns {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .reviews {
+        justify-content: center;
+    }
+
+    .segunda {
+        display: none;
+    }
+
+    .produto-img {
+        position: relative;
+        right: auto;
+        margin-top: 40px;
+    }
+
+    .produto-img img {
+        width: 820px;
+        left: -400px;
+    }
+
+    /* SEGUNDA SEÇÃO */
+
+    .showcase-main {
+        height: auto;
+        flex-direction: column;
+        padding: 30px 20px;
+        height: 50%;
+    }
+
+    .showcase-description {
+        width: 100%;
+        text-align: center;
+
+    }
+
+    .showcase-description h1 {
+        font-size: 34px;
+    }
+
+    .showcase-description p {
+        font-size: 18px;
+    }
+
+    .showcase-image {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .showcase-image img {
+        top: 5%;
+        left: 15%;
+        transform: none;
+        display: block;
+        margin: auto;
+    }
+
+    .product-description {
+        position: relative;
+        z-index: 9;
+    }
+
+    .products-grid {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .product-card,
+    .product-featured {
+        width: 100%;
+        height: 350px;
+        position: relative;
+    }
+
+    .product-image {
+        position: absolute;
+        top: 10%;
+        left: 90%;
+        transform: translateX(-50%);
+        width: 300px;
+    }
+
+    /* CONTATO */
+
+    .text-contact h1 {
+        font-size: 36px;
+        letter-spacing: 8px;
+    }
+
+    .form-contact {
+        width: 95%;
+        padding: 25px;
+    }
+
+    .contact-content {
+        flex-direction: column;
+    }
+
+    .mapa iframe {
+        height: 300px;
+    }
+
+}
+

@@ -11,6 +11,7 @@ window.addEventListener("scroll", () => {
     }
 });
 
+//////////////////////////////////////////////////////////////
 
 // GSAP + SCROLLTRIGGER
 
@@ -53,7 +54,7 @@ function initIphone3D() {
     scene.add(new THREE.AmbientLight(0xffffff, 2));
 
     const light = new THREE.DirectionalLight(0xffffff, 3);
-    light.position.set(5, 5, 5);
+    light.position.set(5, 5, 10);
     scene.add(light);
 
     // MODEL
@@ -87,11 +88,13 @@ function initIphone3D() {
         });
 
         tl.to(iphone.position, {
-            x: -4
+            x: -1,
+            y: -3,
+            z: -5
         }, 0);
 
         tl.to(iphone.rotation, {
-            y: iphone.rotation.y + Math.PI * 2
+            y: iphone.rotation.y + Math.PI * 1.1
         }, 0);
     }
 
@@ -112,6 +115,8 @@ function initIphone3D() {
 }
 
 initIphone3D();
+
+////////////////////////////////////////////////////////////////////////
 
 // HERO TEXTO ANIMATION
 
@@ -151,4 +156,26 @@ function initSlider() {
 window.addEventListener("DOMContentLoaded", initSlider);
 
 
+// 
 
+function enviarWhats(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const mensagem = document.getElementById("mensagem").value;
+
+    const texto = `Olá! Meu nome é ${nome}.
+
+Mensagem:
+${mensagem}`;
+
+    const numero = "5514998871712";
+
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+
+    window.open(url, "_blank");
+}
+
+document
+    .getElementById("formulario")
+    .addEventListener("submit", enviarWhats);

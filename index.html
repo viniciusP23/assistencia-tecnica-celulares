@@ -5,22 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="responsive.css" media="screen">
     <title>Document</title>
 </head>
 
 <body>
 
-    <!-- <header id="header">
+    <header id="header">
         <nav class="navbar">
             <img class="logo" src="img/logo.png" alt="logo">
 
             <ul>
-                <li><a href="#">Sobre</a></li>
-                <li><a href="#">Produtos</a></li>
-                <li><a href="#">Contatos</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#contatos">Contatos</a></li>
             </ul>
         </nav>
-    </header> -->
+    </header>
 
     <main class="hero">
 
@@ -46,12 +47,12 @@
 
         </section>
 
-        <section class="box2">
+        <section class="box2" id="sobre">
             <div class="descriptions">
 
                 <div class="line1">
                     <div class="cards">
-                        <img src="img/settings.png" alt="">
+                        <img src="img/technical-support.png" alt="">
                         <h3>Assistência Técnica</h3>
                         <p>Consertos rápidos e eficientes para celulares, tablets e outros dispositivos eletrônicos.</p>
                     </div>
@@ -83,7 +84,7 @@
 
     <!--  -->
 
-    <section class="container-slider">
+    <section class="container-slider" id="produtos">
         <div class="slider">
 
             <section class="secao">
@@ -133,47 +134,6 @@
 
             <section class="secao">
                 <div class="container-grids">
-
-                    <!-- <div class="pai">
-                        <div class="pai-description">
-                            <h1>Conserto de celulares</h1>
-                            <p>Reparo e troca de peças com qualidade, agilidade e garantia.</p>
-                        </div>
-
-                        <div class="iphone">
-                            <img src="img/iphone-desmontado.png" alt="">
-                        </div>
-                    </div>
-
-                    <div class="mae">
-                        <div class="filho">
-                            <div class="filho-description">
-                                <h3>Iphone</h3>
-                                <p>Modelos novos e seminovos com garantia e qualidade.</p>
-                            </div>
-
-                            <img class="filho-img" src="img/iphone16_PNG35.png" alt="">
-                        </div>
-
-                        <div class="filho">
-                            <div class="filho-description">
-                                <h3>Apple Watch</h3>
-                                <p>Monitore sua saúde, treinos e notificações em tempo real.</p>
-                            </div>
-
-                            <img class="filho-img" src="img/apple_watch_PNG36.png" alt="">
-                        </div>
-
-                        <div class="filho-grande">
-                            <div class="filho-description">
-                                <h3>E muito mais</h3>
-                                <p>Uma seleção completa de acessórios eletrônicos para o seu dia a dia.
-                            </div>
-
-                            <img class="filho-g-img" src="img/fone.png" alt="">
-                        </div>
-                    </div>
-                </div> -->
 
                     <div class="showcase-container">
 
@@ -225,19 +185,11 @@
 
                     </div>
             </section>
-            <!-- 
-            <section class="secao">
-                <h1>Seção 3</h1>
-
-            </section>
-
-            <section class="secao">
-            </section> -->
 
         </div>
     </section>
 
-    <footer>
+    <footer id="contatos">
 
         <section class="container-contact">
             <div class="text-contact">
@@ -250,7 +202,6 @@
 
                 <div class="contact-content">
 
-                    <!-- FORM -->
                     <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
                         <input placeholder="Nome" class="campo-form" id="nome">
 
@@ -259,7 +210,6 @@
                         <button type="submit" class="botao-form">Enviar WhatsApp</button>
                     </form>
 
-                    <!-- MAPA / IFRAME -->
                     <div class="mapa">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.580821286629!2d-49.71107632392947!3d-23.039158342616776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c038b457d12ee9%3A0xe72e8a3d90c50929!2sR.%20Alt%C3%ADno%20Arantes%2C%20323%20-%20Chavantes%2C%20SP%2C%2018970-000!5e0!3m2!1spt-BR!2sbr!4v1782433506330!5m2!1spt-BR!2sbr"
