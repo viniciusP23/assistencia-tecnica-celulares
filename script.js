@@ -118,15 +118,6 @@ initIphone3D();
 
 ////////////////////////////////////////////////////////////////////////
 
-// HERO TEXTO ANIMATION
-
-gsap.from(".content", {
-    x: -100,
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out"
-});
-
 
 // SLIDER HORIZONTAL (ISOLADO)
 
@@ -168,6 +159,11 @@ function enviarWhats(event) {
 
 Mensagem:
 ${mensagem}`;
+
+    if (nome.trim() === "" || mensagem.trim() === "") {
+        alert("Preencha todos os campos.");
+        return;
+    }
 
     const numero = "5514998871712";
 

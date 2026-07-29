@@ -8,11 +8,39 @@
     font-family: "Roboto", sans-serif;
 }
 
+:root {
+    /* ===== Cores principais ===== */
+    --color-background: #000;
+    --color-surface: #202020;
+
+    /* ===== Cor de destaque ===== */
+    --color-primary: #c8604a;
+    --color-primary-hover: #e2785e;
+
+    /* ===== Cor secundária ===== */
+    --color-secondary: rgb(221, 153, 5);
+    --color-secondary-hover: rgb(255, 183, 0);
+
+    /* ===== Textos ===== */
+    --color-text: #ffffff;
+    --color-text-secondary: #bfcbdd;
+    --color-text-brown: #7a5a52;
+    --color-title-dark: #2c1a14;
+
+    /* ===== Fundos ===== */
+    --color-light-background: #f5ede8;
+    --color-section-background: #F0F1F5;
+    --color-card-background: #0e0c0cec;
+
+    /* ===== botão ===== */
+    --color-button-dark: #3d1f17;
+}
+
 
 body,
 html {
     overflow-x: hidden;
-    background-color: black;
+    background-color: var(--color-background);
     scroll-behavior: smooth !important;
 }
 
@@ -66,7 +94,14 @@ ul {
 li a {
     font-size: 20px;
     text-decoration: none;
-    color: #fff;
+    color: var(--color-text);
+}
+
+li a:hover {
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--color-secondary);
+    transition: 0.5s;
 }
 
 /* MAIN */
@@ -85,11 +120,11 @@ section {
     position: absolute;
     height: 200vh;
     pointer-events: none;
+}
 
-    .celular {
-        position: sticky;
-        top: 0;
-    }
+.celular {
+    position: sticky;
+    top: 0;
 }
 
 .hero-celular::before {
@@ -108,7 +143,7 @@ section {
     z-index: -1;
 }
 
-.texto-fundo {
+.background-text {
     position: absolute;
     font-size: 180px;
     font-weight: 900;
@@ -140,17 +175,17 @@ section {
     font-size: 50px;
     font-weight: 600;
     text-transform: uppercase;
-    color: #fff;
+    color: var(--color-text);
 }
 
 .content h1 span {
-    color: rgb(221, 153, 5);
+    color: var(--color-secondary);
 }
 
 .content p {
     width: 500px;
     font-size: 18px;
-    color: #fff;
+    color: var(--color-text);
     margin-top: 10px;
 }
 
@@ -160,20 +195,20 @@ section {
     margin-top: 20px;
     border-radius: 10px;
     border: none;
-    background-color: rgb(221, 153, 5);
+    background-color: var(--color-secondary);
     font-size: 20px;
-    color: #fff;
+    color: var(--color-text);
     cursor: pointer;
     transition: 0.5s;
 }
 
 
 .btn-content:hover {
-    background-color: rgb(255, 183, 0);
+    background-color: var(--color-secondary-hover);
     transform: translateY(-3px);
 }
 
-/* box2 */
+/* services-section */
 
 .descriptions img {
     width: 65px;
@@ -209,11 +244,11 @@ section {
 }
 
 .cards h3 {
-    color: #fff;
+    color: var(--color-text);
 }
 
 .cards p {
-    color: #bfcbdd;
+    color: var(--color-text-secondary);
     margin-top: 5px;
 }
 
@@ -239,16 +274,7 @@ section {
     overflow: hidden;
 }
 
-.secao:nth-child(1) {
-    background: crimson;
-
-    h1 {
-        font-size: 50px;
-    }
-}
-
-
-.primeira {
+.content-wrapper {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -256,33 +282,30 @@ section {
     position: relative;
 }
 
-.segunda {
+.side-content {
     width: 40%;
     height: 100%;
     border-radius: 100px 0 0 100px;
-
     position: relative;
     overflow: hidden;
 }
 
 
-.texto-lateral {
+.side-text {
     position: absolute;
     right: -120px;
     top: 50%;
-
     font-size: 150px;
     font-weight: bold;
     color: #4b7c90;
-
     transform: rotate(-90deg);
 }
 
 
-.primeira {
+.content-wrapper {
     width: 100%;
     height: 100vh;
-    background-color: #f5ede8;
+    background-color: var(--color-light-background);
     display: flex;
     align-items: center;
     position: relative;
@@ -290,7 +313,7 @@ section {
 }
 
 /* ── CONTEÚDO SEÇÃO 1 ───────────────────────── */
-.conteudo {
+.section-content {
     flex: 1;
     padding: 0 60px;
     z-index: 2;
@@ -299,20 +322,20 @@ section {
     gap: 16px;
 }
 
-.conteudo h1 {
+.section-content h1 {
     font-size: 46px;
     font-weight: 700;
-    color: #2c1a14;
+    color: var(--color-title-dark);
     line-height: 1.2;
 }
 
-.conteudo h1 span {
-    color: #c8604a;
+.section-content h1 span {
+    color: var(--color-primary);
 }
 
-.conteudo p {
+.section-content p {
     font-size: 14px;
-    color: #7a5a52;
+    color: var(--color-text-brown);
     max-width: 340px;
     line-height: 1.7;
 }
@@ -325,8 +348,8 @@ section {
 }
 
 .btn-primary {
-    background: #3d1f17;
-    color: #fff;
+    background: var(--color-button-dark);
+    color: var(--color-text);
     border: none;
     padding: 12px 26px;
     border-radius: 30px;
@@ -349,32 +372,31 @@ section {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    border: 2px solid #f5ede8;
+    border: 2px solid var(--color-light-background);
     margin-right: -10px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 11px;
     font-weight: 600;
-    color: #fff;
+    color: var(--color-text);
 }
 
 .review-text {
     margin-left: 14px;
     font-size: 12px;
-    color: #7a5a52;
+    color: var(--color-text-brown);
 }
 
 .review-text strong {
     display: block;
     font-size: 13px;
-    color: #3d1f17;
+    color: var(--color-button-dark);
 }
 
-.segunda {
+.side-content {
     width: 42%;
     height: 100%;
-    background-color: #e8c4ba;
     border-radius: 100px 0 0 100px;
     position: relative;
     overflow: hidden;
@@ -382,36 +404,21 @@ section {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    background-image: url(img/copo-stanley.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.produto-img {
-
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: absolute;
-    right: 20%;
-    z-index: 10;
-}
-
-.produto-img img {
-    width: 800px;
-}
-
-.texto-lateral {
+.side-text {
     position: absolute;
     right: -120px;
     top: 0;
     transform: rotate(-90deg) translateX(-50%);
     transform-origin: center center;
-
     font-size: 200px;
     font-weight: bold;
     font-family: "Anton", sans-serif;
-    color: #b4aaa8;
+    color: #dadada;
     white-space: nowrap;
     letter-spacing: 4px;
     z-index: 1;
@@ -423,7 +430,7 @@ section {
 .container-grids {
     height: 100vh;
     width: 100%;
-    background-color: #F0F1F5;
+    background-color: var(--color-section-background);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -438,21 +445,22 @@ section {
 .showcase-main {
     width: 100%;
     height: 450px;
-    background: #c8604a;
+    background: var(--color-primary);
     border-radius: 30px;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .showcase-description {
     width: 40%;
     padding: 80px;
-    color: white;
+    color: var(--color-text);
 }
 
 .showcase-description h1 {
@@ -479,31 +487,33 @@ section {
 }
 
 .products-grid {
-
     width: 100%;
     height: 400px;
     margin-top: 20px;
-
     display: flex;
     gap: 20px;
 }
 
 .product-card {
-
     flex: 1;
     height: 400px;
-
-    background: #0e0c0cec;
+    background: var(--color-card-background);
     border-radius: 30px;
-
     position: relative;
     overflow: hidden;
-
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover,
+.showcase-main:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
 .product-description {
-    color: white;
+    color: var(--color-text);
     padding: 30px;
 }
 
@@ -519,23 +529,18 @@ section {
 }
 
 .product-image {
-
     width: 400px;
-
     position: absolute;
     top: 40%;
     left: 50%;
-
     transform: translateX(-50%);
 }
 
 .product-featured {
-
     flex: 1.6;
 }
 
 .product-featured .product-image {
-
     width: 400px;
     top: 35%;
 }
@@ -543,7 +548,7 @@ section {
 /* FOOTER */
 
 footer {
-    background-color: #202020;
+    background-color: var(--color-surface);
     min-height: 100vh;
 }
 
@@ -595,7 +600,7 @@ footer {
 
 
 .form-contact h2 {
-    color: white;
+    color: var(--color-text);
     text-align: center;
     margin-bottom: 25px;
     text-transform: uppercase;
@@ -604,7 +609,7 @@ footer {
 
 
 /* formulario */
-.formulario-contato {
+.contact-form {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -620,7 +625,7 @@ footer {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, .2);
     outline: none;
-    color: white;
+    color: var(--color-text);
     font-size: 16px;
 }
 
@@ -637,12 +642,12 @@ textarea.campo-form {
 
 
 /* botão */
-.botao-form {
+.form-button {
     height: 55px;
     border: none;
     border-radius: 12px;
-    background: #c8604a;
-    color: white;
+    background: var(--color-primary);
+    color: var(--color-text);
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
@@ -650,8 +655,8 @@ textarea.campo-form {
 }
 
 
-.botao-form:hover {
-    background: #e2785e;
+.form-button:hover {
+    background: var(--color-primary-hover);
     transform: translateY(-3px);
 }
 
@@ -659,13 +664,10 @@ textarea.campo-form {
     margin-top: -80px;
     width: 900px;
     padding: 40px;
-
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
-
     border-radius: 25px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-
     box-shadow: 0 20px 50px rgba(0, 0, 0, .5);
 }
 
@@ -677,7 +679,7 @@ textarea.campo-form {
 
 
 /* FORM */
-.formulario-contato {
+.contact-form {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -686,11 +688,11 @@ textarea.campo-form {
 
 
 /* MAPA */
-.mapa {
+.map {
     flex: 1;
 }
 
-.mapa iframe {
+.map iframe {
     width: 100%;
     height: 100%;
     min-height: 250px;
@@ -705,7 +707,7 @@ textarea.campo-form {
     justify-content: center;
     align-items: center;
     gap: 15px;
-    color: white;
+    color: var(--color-text);
     margin-top: 30px;
 }
 
@@ -713,12 +715,12 @@ textarea.campo-form {
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #fff;
+    color: var(--color-text);
 }
 
 .social-links a {
     text-decoration: none;
-    color: white;
+    color: var(--color-text);
     padding: 12px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.08);
@@ -727,10 +729,33 @@ textarea.campo-form {
 }
 
 .social-links a:hover {
-    background: #c8604a;
+    background: var(--color-primary);
     transform: translateX(5px);
 }
 
 .social-links img {
     width: 40px;
+}
+
+.credits {
+    margin-top: 50px;
+    padding: 20px;
+    border-top: 1px solid #2f2f2f;
+    text-align: center;
+}
+
+.credits p {
+    color: #bfbfbf;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.credits a {
+    color: #9fa3a7;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.credits a:hover {
+    text-decoration: underline;
 }
