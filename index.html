@@ -4,9 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Define o favicon do site. -->
     <link rel="icon" href="./img/logo.png" type="image/png">
+
+    <!-- Importa o arquivo CSS principal -->
     <link rel="stylesheet" href="estilo.css">
+
+    <!-- Importa o CSS responsável pela responsividade. -->
     <link rel="stylesheet" href="responsive.css" media="screen">
+
+    <!-- Importa os estilos da biblioteca AOS (Animate On Scroll). -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
     <title>Paulini Assistência Técnica | Conserto de Celulares</title>
 </head>
 
@@ -34,7 +44,7 @@
             <div class="celular"></div>
         </div>
 
-        <section class="hero-section">
+        <section class="hero-section" data-aos="fade-right">
 
             <h1 class="background-text">Assistência</h1>
 
@@ -55,13 +65,13 @@
             <div class="descriptions">
 
                 <div class="cards-row">
-                    <div class="cards">
+                    <div class="cards" data-aos="fade-right">
                         <img src="img/technical-support.png" alt="suporte tecnico icon">
                         <h3>Assistência Técnica</h3>
                         <p>Consertos rápidos e eficientes para celulares, tablets e outros dispositivos eletrônicos.</p>
                     </div>
 
-                    <div class="cards">
+                    <div class="cards" data-aos="fade-right">
                         <img src="img/privacy.png" alt="privacidade icon">
                         <h3>Privacidade | Segurança</h3>
                         <p>Proteção total dos seus dados durante todo o processo de manutenção.</p>
@@ -69,13 +79,13 @@
                 </div>
 
                 <div class="cards-row">
-                    <div class="cards">
+                    <div class="cards" data-aos="fade-left">
                         <img src="img/shopping-bag.png" alt="compras icon">
                         <h3>Venda e Manutenção</h3>
                         <p>Venda de aparelhos e acessórios, além de suporte técnico especializado.</p>
                     </div>
 
-                    <div class="cards">
+                    <div class="cards" data-aos="fade-left">
                         <img src="img/smart-belt.png" alt="acessórios icon">
                         <h3>Acessórios e Peças</h3>
                         <p>Capas, películas, cabos e muito mais para o seu smartphone.</p>
@@ -95,7 +105,7 @@
 
                 <div class="content-wrapper">
 
-                    <div class="section-content">
+                    <div class="section-content" data-aos="fade-right">
                         <h1>
                             Quente ou frio.<br>
                             Cada momento merece perfeição.<br>
@@ -146,7 +156,6 @@
                             </div>
                         </div>
 
-
                         <div class="products-grid">
 
                             <div class="product-card">
@@ -195,7 +204,7 @@
                 <h1>Contatos</h1>
             </div>
 
-            <div class="form-contact">
+            <div class="form-contact" data-aos="fade-up" data-aos-duration="3000">
 
                 <h2>tire suas dúvidas</h2>
 
@@ -248,11 +257,17 @@
 
     </footer>
 
-
-
 </body>
+
+<!-- ================= BIBLIOTECAS ================= -->
+
+<!-- GSAP (animações) -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+
+<!-- Plugin ScrollTrigger do GSAP -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+
+<!-- Importação do Three.js -->
 <script type="importmap">
 {
   "imports": {
@@ -261,6 +276,21 @@
   }
 }
 </script>
+
+<!-- Biblioteca AOS (Animate On Scroll) -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Configuração do AOS -->
+<script>AOS.init();</script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+</script>
+
+<!-- Script principal do projeto -->
 <script type="module" src="script.js"></script>
 
 </html>
