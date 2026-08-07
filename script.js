@@ -165,7 +165,7 @@ ${mensagem}`;
         return;
     }
 
-    const numero = "5514998871712";
+    const numero = "5514998508219";
 
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
 
