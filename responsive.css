@@ -54,14 +54,20 @@
 
     .cards {
         width: 100%;
+        max-width: 400px;
     }
 
     .cards p {
-        width: 400px;
+        width: 100%;
+        max-width: 400px;
     }
 
     .showcase-description h1 {
         font-size: 40px;
+    }
+
+    .showcase-description {
+        padding: 40px;
     }
 
     .showcase-image img {
@@ -80,16 +86,40 @@
 
 @media (max-width:768px) {
 
-    ul {
-        display: none;
-    }
-
     .navbar {
-        justify-content: center;
+        justify-content: space-between;
+        padding: 0 25px;
     }
 
     .logo {
         width: 60px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    ul {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        padding: 25px 0 30px;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+    }
+
+    ul.active {
+        max-height: 400px;
+        opacity: 1;
     }
 
     section {
@@ -158,12 +188,34 @@
         margin-bottom: 0;
     }
 
+    .cards p {
+        width: 100%;
+    }
+
+    .cards img {
+        width: 55px;
+    }
+
     /* SLIDER */
 
     .container-slider,
     .slider,
     .secao {
         height: auto;
+    }
+
+    .slider {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .secao {
+        width: 100%;
+    }
+
+    .container-grids {
+        height: auto;
+        padding: 60px 0;
     }
 
     .content-wrapper {
@@ -209,11 +261,11 @@
         height: auto;
         flex-direction: column;
         padding: 30px 20px;
-        height: 50%;
     }
 
     .showcase-description {
         width: 100%;
+        padding: 0 15px;
         text-align: center;
 
     }
@@ -232,6 +284,8 @@
     }
 
     .showcase-image img {
+        width: 100%;
+        max-width: 380px;
         top: 5%;
         left: 15%;
         transform: none;

@@ -1,4 +1,3 @@
-
 // HEADER SCROLL
 
 const header = document.getElementById("header");
@@ -114,7 +113,9 @@ function initIphone3D() {
     });
 }
 
-initIphone3D();
+if (window.matchMedia("(min-width: 1025px)").matches) {
+    initIphone3D();
+}
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -126,17 +127,28 @@ function initSlider() {
     const slider = document.querySelector(".slider");
     const sections = gsap.utils.toArray(".secao");
 
-    gsap.to(slider, {
-        x: () => -(slider.scrollWidth - window.innerWidth),
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".container-slider",
-            start: "top top",
-            pin: true,
-            scrub: 1,
-            snap: 1 / (sections.length - 1),
-            end: () => "+=" + slider.scrollWidth
-        }
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 769px)", () => {
+
+        const tween = gsap.to(slider, {
+            x: () => -(slider.scrollWidth - window.innerWidth),
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".container-slider",
+                start: "top top",
+                pin: true,
+                scrub: 1,
+                snap: 1 / (sections.length - 1),
+                end: () => "+=" + slider.scrollWidth,
+                invalidateOnRefresh: true
+            }
+        });
+
+        // cleanup automático do GSAP matchMedia ao trocar de breakpoint
+        return () => {
+            tween.kill();
+        };
     });
 
     window.addEventListener("resize", () => {
@@ -145,6 +157,28 @@ function initSlider() {
 }
 
 window.addEventListener("DOMContentLoaded", initSlider);
+
+//////////////////////////////////////////////////////////////
+
+// MENU MOBILE (HAMBURGER)
+
+const hamburger = document.getElementById("hamburger");
+const menuMobile = document.querySelector(".navbar ul");
+
+if (hamburger && menuMobile) {
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        menuMobile.classList.toggle("active");
+    });
+
+    // fecha o menu ao clicar em um link
+    menuMobile.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            menuMobile.classList.remove("active");
+        });
+    });
+}
 
 
 // 
